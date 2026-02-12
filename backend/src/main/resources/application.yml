@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: developer-knowledgebase
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/knowledgebase}
+    username: ${DB_USERNAME:knowledge_user}
+    password: ${DB_PASSWORD:knowledge_pass}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:VGhpc0lzQVN1cGVyTG9uZ0RldkVudlNlY3JldEtleUZvckpXVDEyMw==}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
